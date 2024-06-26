@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Viewer Page</title>
+    <link href="bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      #extContents {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .tab-content {
+        flex: 1;
+        overflow: auto;
+      }
+    </style>
+</head>
+<body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+  <div class="d-flex flex-column h-100 p-1 bg-body" id="extMain" data-bs-theme="dark">
+    <div id="waitKitchen">
+      <h3 class="mx-auto my-2 fw-bold">Waiting for Kitchen response...</h3>
+    </div>
+    <div id="extContents" class="flex-fill">
+      <ul class="nav nav-underline">
+        <li class="nav-item">
+          <button class="nav-link active" data-bs-toggle="tab" id="pool-tab" data-bs-target="#pool-tab-pane" type="button" role="tab" aria-controls="pool-tab-pane" aria-selected="true">Pools</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" id="wave-tab" data-bs-target="#wave-tab-pane" type="button" role="tab" aria-controls="wave-tab-pane" aria-selected="false">Waves</button>
+        </li>
+      </ul>
+    
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="pool-tab-pane" role="tabpanel" aria-labelledby="pool-tab" tabindex="0">
+          <div id="pool-list" class="list-group">
+
+          </div>
+        </div>
+        <div class="tab-pane fade" id="wave-tab-pane" role="tabpanel" aria-labelledby="wave-tab" tabindex="1">
+          <div id="wave-list" class="list-group">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <template id="wave-template">
+    <div class="list-group-item">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><span class="repl-name"></span>'s wave</h5>
+      </div>
+      <div class="progress">
+        <div class="progress-bar overflow-visible" style="width: 50%;"></div>
+      </div>
+      <small>Contribute with <code>!t wave buy <span class="repl-name"></span> &lt;mobname&gt; &lt;amount&gt;</code></small>
+    </div>
+  </template>
+
+  <template id="pool-template">
+    <div class="list-group-item">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1 repl-name"></h5>
+      </div>
+      <div class="progress">
+        <div class="progress-bar overflow-visible" style="width: 50%;"></div>
+      </div>
+      <small>Contribute with <code>!t pool <span class="repl-idx">idx</span> &lt;amount&gt;</code></small>
+    </div>
+  </template>
+
+  <template id="empty-template">
+    <div class="list-group-item">
+      <h2>Nothing here</h2>
+      <small>Start a new <span class="repl-type"></span> with <code class="repl-start-cmd"></code></small>
+    </div>
+  </template>
+  
+  <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+  <script src="jquery-3.7.1.slim.min.js"></script>
+  <script src="bootstrap-5.3.3-dist/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="viewer.js" type="text/javascript"></script>
+</body>
+</html>
