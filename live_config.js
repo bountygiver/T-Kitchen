@@ -70,11 +70,11 @@ function handleKitchenMsg(data) {
           online = true;
           waves = [];
           pools = [];
-          if (data.pools && data.pools.length) {
-            data.pools.forEach(addPool);
+          if (d.pools && d.pools.length) {
+            d.pools.forEach(addPool);
           }
-          if (data.waves && data.waves.length) {
-              data.waves.forEach(addWave);
+          if (d.waves && d.waves.length) {
+              d.waves.forEach(addWave);
           }
           break;
         case "poolStart":

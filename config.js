@@ -5,7 +5,11 @@ const twitch = window.Twitch.ext;
 
 // onContext callback called when context of an extension is fired 
 twitch.onContext((context) => {
-  console.log(context);
+  if (context.theme === "light") {
+    $("body").attr("data-bs-theme", "light");
+  } else {
+    $("body").attr("data-bs-theme", "dark");
+  }
 });
 
 
